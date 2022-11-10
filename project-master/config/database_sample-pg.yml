@@ -1,0 +1,19 @@
+development:
+  adapter: postgresql
+  database: software_hut_team_10_dev
+  min_messages: warning
+  
+  # uncomment these lines if you are connected to postgres over the network stack
+  # host: localhost
+  # username:
+  # password:
+
+test:
+  adapter: postgresql
+  database: software_hut_team_10_test
+  min_messages: warning
+
+  # uncomment these lines if you are connected to postgres over the network stack
+  # host: localhost
+  # username:
+  # password:

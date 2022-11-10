@@ -1,0 +1,15 @@
+
+%h1 Upload CSV Files
+
+%br
+
+%p{:style => "font-size: 20px"}  Upload lists of students in this page in the form of CSV files.
+
+%p Choose a csv file from your device and click the "Upload CSV" button.
+
+%br
+= simple_form_for :search, url: lecturer_importstudents_path do |f| 
+ 
+   = f.label :file, "Upload CSV File"
+   = f.file_field :file, required: true 
+   = f.button :submit, "Upload CSV", :style=> 'color:black; border-width: 0; background-color: #1e90ff; text-decoration:none; padding: 20px; font-size: 20px', :title=> 'Please ensure that a CSV file has been selected before submission. Use the "Browse" button to upload a file.'

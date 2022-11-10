@@ -1,0 +1,72 @@
+%h1 User information
+
+%br
+
+%p{:style => "font-size: 20px"}  The table below displays information about all users in the system.
+
+%table.table.table-bordered.table-secondary{:border => 3, :width=>"60%"}
+  %thead
+    %tr
+      %th Username
+      %th Name
+      %th Email
+      %th Suspended?
+      %th Admin
+
+  %tbody
+    - User.all.each do |user|
+      %tr 
+        %td= user.username
+        %td= user.givenname
+        %td= user.email
+        %td= user.suspended 
+        %td= user.admin
+
+%br
+
+%p{:style => "font-size: 20px"}  Select user that you wish to suspend.
+
+%br
+= simple_form_for :search, url: admin_suspenduser_path do |f|    #To be edited
+ 
+  = f.label :users, "Suspend User"
+  = f.select :users, get_users
+  = f.submit "Suspend User", :style=> 'color:black; border-width: 0; background-color: #1e90ff; text-decoration:none; padding: 20px; font-size: 20px', :title=> 'Select the user you wish to suspend from the dropdown box and click this button.'
+
+%br
+%br
+
+%p{:style => "font-size: 20px"}  Select user that you wish to unsuspend.
+
+%br
+= simple_form_for :search, url: admin_unsuspenduser_path do |f|    #To be edited
+ 
+  = f.label :users, "Unsuspend User"
+  = f.select :users, get_users
+  = f.submit "Unsuspend User", :style=> 'color:black; border-width: 0; background-color: #1e90ff; text-decoration:none; padding: 20px; font-size: 20px', :title=> 'Select the user you wish to unsuspend from the dropdown box and click this button.'
+
+%br
+%br
+
+%p{:style => "font-size: 20px"}  Select user that you wish to promote to admin.
+
+%br
+= simple_form_for :search, url: admin_promoteadmin_path do |f|    #To be edited
+ 
+  = f.label :users, "Promote User"
+  = f.select :users, get_users
+  = f.submit "Promote User", :style=> 'color:black; border-width: 0; background-color: #1e90ff; text-decoration:none; padding: 20px; font-size: 20px', :title=> 'Select the user you wish to promote to an admin from the dropdown box and click this button.'
+
+%br
+%br
+
+%p{:style => "font-size: 20px"}  Select user that you wish to promote to admin.
+
+%br
+= simple_form_for :search, url: admin_demoteadmin_path do |f|    #To be edited
+ 
+  = f.label :users, "Demote User"
+  = f.select :users, get_users
+  = f.submit "Demote User", :style=> 'color:black; border-width: 0; background-color: #1e90ff; text-decoration:none; padding: 20px; font-size: 20px', :title=> 'Select the user you wish to demote from an admin from the dropdown box and click this button.'
+
+        

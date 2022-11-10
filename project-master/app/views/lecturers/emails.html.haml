@@ -1,0 +1,11 @@
+%h4 Form Details
+
+%br
+= simple_form_for(Lecturer.new) do |f|
+
+   = f.label :body, "Email Details"
+   -#= f.text_area :body, size: "60x12"
+
+
+   = f.button :submit, "Send Details", :style=> 'color:black; border-width: 0; background-color: #1e90ff; text-decoration:none; padding: 20px; font-size: 20px'
+

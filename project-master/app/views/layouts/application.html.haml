@@ -1,0 +1,55 @@
+!!!
+%html
+  %head
+    %title SoftwareHutTeam10 - #{content_for(:title)}
+    %meta{ name: "viewport", content: "width=device-width, initial-scale=1.0" }
+    %meta{ :'http-equiv' => 'X-UA-Compatible', content: 'IE=edge' }
+    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "content-type"}
+    = stylesheet_pack_tag "styles", media: :all
+    = javascript_pack_tag "application"
+    = favicon_link_tag '/favicon.ico'
+    = csrf_meta_tags
+
+  %body.bg-light
+    = render 'layouts/svg_logo'
+
+    %header.p-3.mb-3.border-bottom
+      .container
+        .d-flex.flex-wrap.align-items-center.justify-content-center.justify-content-lg-start
+          %a.d-flex.align-items-center.mb-2.mb-lg-0.text-dark.text-decoration-none{:href => "/"}
+            %img.bi.me-2{"aria-label" => "Bootstrap", :height => "55", :role => "img", :width => "130", :src => "https://www.k-int.com/wp-content/uploads/2018/01/University-of-Sheffield-logo.jpg"}
+            - if user_signed_in?
+              - if current_user.lecturer?
+                %ul.nav.col-12.col-lg-auto.me-lg-auto.mb-2.justify-content-center.mb-md-0
+                  %li.fw-bolder.m-2
+                    = link_to 'Home', lecturers_main_page_path, title: 'Go to the home page', class: 'nav-link px-2 link-secondary'
+              - elsif current_user.admin?
+                %ul.nav.col-12.col-lg-auto.me-lg-auto.mb-2.justify-content-center.mb-md-0
+                  %li.fw-bolder.m-2
+                    = link_to 'Home', "admins_main_page", title: 'Go to the home page', class: 'nav-link px-2 link-secondary'
+              - else
+                %ul.nav.col-12.col-lg-auto.me-lg-auto.mb-2.justify-content-center.mb-md-0
+                  %li.fw-bolder.m-2
+                    = link_to 'Home', students_main_page_path, title: 'Go to the home page', class: 'nav-link px-2 link-secondary'    
+          %form.col-12.col-lg-auto.mb-3.mb-lg-0.me-lg-3
+          - if user_signed_in?
+            %a.nav-link.dropdown-toggle{ href: '#', data: { bs_toggle: :dropdown }, aria: { expanded: false } }
+              = current_user.email
+            %nav.dropdown-menu.dropdown-menu-lg-end
+              = link_to 'Sign out', destroy_user_session_path, class: 'dropdown-item', method: :delete, title: "Log out of the system"
+
+
+    .flash-messages
+      - flash.each do |name, msg|
+        - next unless name == 'alert' || name == 'notice'
+        .alert.alert-info
+          .container
+            = msg
+            %a{ href: '#', title: 'Hide this message', data: { bs_dismiss: :alert } } Dismiss
+
+    %main
+      .container= yield
+
+    %footer.mt-auto.my-5.pt-5.text-muted.text-center.text-small
+      %p.mb-1 &copy; Team 10 #{Date.today.year}
+

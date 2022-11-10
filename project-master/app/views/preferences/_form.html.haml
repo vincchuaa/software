@@ -1,0 +1,23 @@
+%h1 Form Details
+
+%br
+= simple_form_for(Preference.new) do |f| 
+  
+  = f.label :gender, "Gender:"
+  = f.select :gender, [['Male','male'],['Female','female'],['Non-Binary','non-binary']]
+
+  %br
+  %br
+  = f.label "Deadline: " + - getDeadline.to_s + " "
+
+  %br
+  = f.label :username, "Please provide your full name"
+  = f.input :username, required: true, label: false
+
+  = f.label :partners, "Please provide your partners full name"
+  = f.input :partners, required: true, label: false
+
+  = f.label :nonPartners, "Please provide the " + -get_unwantedMembers.to_s + " name of person you would prefer not to work with ", placeholder: "Write the name down in comma seperated"
+  = f.input :nonPartners, required: true, label: false
+
+  = f.button :submit, "Send Details", :style=> 'color:black; border-width: 0; background-color: #1e90ff; text-decoration:none; padding: 20px; font-size: 20px', :title=> 'Please ensure that all fields are filled with the appropriate format before clicking this button.'

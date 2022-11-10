@@ -1,0 +1,17 @@
+%h1 Select Groupset
+
+%br
+= simple_form_for :search, url: lecturer_setCurrentGroupSetOrganise_path do |f|
+  = f.label :currentGroupSet, "Select Project:"
+  = f.select :currentGroupSet, get_groupSet
+ 
+  = f.button :submit, "Go to organise", :style=> 'color:black; border-width: 0; background-color: #1e90ff; text-decoration:none; padding: 20px; font-size:20px', :title=> 'Select a groupset from the dropdown box and then click this button to advance to the organise page.'
+    
+%br
+
+= simple_form_for :search, url: lecturer_setCurrentGroupSetAssigned_path do |f|
+  = f.label :currentGroupSet, "Select Project:"
+  = f.select :currentGroupSet, get_groupSet
+ 
+  = f.button :submit, "Go to assigned", :style=> 'color:black; border-width: 0; background-color: #1e90ff; text-decoration:none; padding: 20px; font-size:20px', :title=> 'Select a groupset from the dropdown box and then click this button to view the final teams for the respective groupset.'
+    

@@ -1,0 +1,10 @@
+%h1 Welcome
+
+%br
+= simple_form_for :search, url: lecturer_setCurrentModule_path do |f|
+  = f.label :modules, "Module Code"
+  = f.select :modules, get_modules
+ 
+  = f.button :submit, "Go to module", :style=> 'color:black; border-width: 0; background-color: #1e90ff; text-decoration:none; padding: 20px; font-size:20px', :title=> 'Please select the module that you wish to access from the dropdown box. Then, click this button to proceed to dashboard page.'
+    
+

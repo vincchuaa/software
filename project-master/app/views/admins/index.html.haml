@@ -1,0 +1,16 @@
+%h1 Welcome Admin
+
+%br
+
+%p{:style => "font-size: 20px"} Below are the services that are accessible to you.
+
+%button.btn.btn-secondary
+ = link_to "Upload CSV Files ", "admin_csv", :style=> 'color:black; text-decoration:none; padding: 20px; font-size: 20px', :title=> 'Upload lecturer lists in the form of CSV files.'
+
+%button.btn.btn-secondary{:style => "margin: 50px"}
+ = link_to "User Information", "user_info", :style=> 'color:black; text-decoration:none; padding: 20px; font-size: 20px', :title=> 'View information about all users in the system and manually adjust roles or suspend/unsuspend users.'
+
+%button.btn.btn-secondary
+ = link_to "My Profile", "profile", :style=> 'color:black; text-decoration:none; padding: 20px; font-size: 20px', :title=> 'View details of your profile.'
+
+

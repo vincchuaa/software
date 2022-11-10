@@ -1,0 +1,15 @@
+%h1 Profile 
+
+%br
+
+%table.table.table-bordered.table-secondary{:border => 3, :width=>"30%"}
+  %thead
+  %tr
+    %th Username     
+    %td= current_user.username
+  %tr
+    %th Name     
+    %td= current_user.givenname
+  %tr
+    %th Email     
+    %td= current_user.email

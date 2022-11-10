@@ -1,0 +1,31 @@
+-content_for :title, 'View Groups'
+
+
+.students 
+ %table.table.table-bordered.table-secondary
+  %thead 
+   %tr
+    %th UNNASSIGNED STUDENTS
+  %tbody
+   - if getUATeam.size >= 0
+    -   getUATeam.each do |student|
+     %tr
+      %td= student.full_name
+
+.students 
+ %table.table.table-bordered.table-secondary
+  %thead
+   %tr
+    %th Full Name
+    %th Group
+  %tbody
+   - if getAllTeams.size >= 0
+    -   getAllTeams.each do |student|
+     %tr
+      %td= student.full_name
+      %td= student.groupCode
+
+%button.btn.btn-secondary{:style => "margin: 20px"}
+ = link_to "Export Group Members", "groupmembers.csv", :style=> 'color:black; text-decoration:none; padding: 20px; font-size: 20px', :title=> 'Once you are satisfied with the teams, click this button to export a CSV file containing the GROUPS and their respective MEMBERS to your device.'
+%button.btn.btn-secondary{:style => "margin: 20px"}
+ = link_to "Export Groups", "groups.csv", :style=> 'color:black; text-decoration:none; padding: 20px; font-size: 20px', :title=> 'Once you are satisfied with the teams, click this button to export a CSV file containing the GROUPS to your device.'

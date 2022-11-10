@@ -1,0 +1,82 @@
+.organize-panel {
+  display: grid; 
+  grid-auto-columns: 1fr; 
+  grid-template-columns: 1fr 1fr 1fr; 
+  grid-template-rows: 0.7fr 1.7fr 0.6fr; 
+  gap: 13px 15px;
+  grid-template-areas: 
+    "view-button remove-button add-button"
+    "students students students"
+    "save save save"; 
+}
+
+.group-list {
+  border:2px solid grey;
+}
+
+.group-list button{ 
+  padding: 10px 24px; 
+  margin: 10px 0px 10px 10px;
+  display: block; 
+  width:95%;
+}
+
+.group-list button:hover { 
+  background-color: grey;
+}
+
+.students { 
+  overflow:auto;
+  grid-area: students; 
+  border:2px solid grey;
+}
+
+.move {
+  grid-area: move;
+  border:2px solid grey;
+  display:flex;
+  justify-content: space-evenly;
+}
+
+.move-student {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content button {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.move-student:hover .dropdown-content {
+  display: block;
+  background-color: grey;
+}
+
+.to-team:hover .dropdown-content {
+  display: block;
+  background-color: grey;
+}
+
+.save button{
+  padding: 5px;
+  margin: 10px;
+}
+
+.save { 
+  padding: 0;
+  grid-area: save; 
+  display: flex;
+  justify-content: space-evenly;
+}
+

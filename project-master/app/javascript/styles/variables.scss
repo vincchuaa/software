@@ -1,0 +1,14 @@
+header {
+  background-color: #404040;
+}
+
+*{
+  font-family: "Montserrat", sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";

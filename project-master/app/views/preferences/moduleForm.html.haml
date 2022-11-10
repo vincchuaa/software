@@ -1,0 +1,24 @@
+
+%table.table{:width=>"70%"}
+    %form_tag
+        %thead Project Form
+        %tr
+            %label{:for => "name"} Please provide your full name 
+            %input#name.form-control{:name => "full_name", :placeholder => "Your name", :type => "text"}/
+        //will need to change using count of partners
+        %tr
+            %label{:for => "partner"} Please provide your partners full name
+            %input#name.form-control{:name => "partners", :placeholder => "Partners name", :type => "text"}/
+        //will need to change using count of avoid people
+        %tr
+            %label{:for => "avoid"} Please provide the name of a person you would prefer not to work with
+            %input#name.form-control{:name => "non_partner_one", :placeholder => "Name", :type => "text"}/
+        %tr 
+            %label{:for => "gender"} Please select your gender
+            %select#gender.form-control{:name => "gender"}
+                %option{:value => "male"} Male
+                %option{:value => "female"} Female
+                %option{:value => "non-binary"} Non-binary
+
+%button.btn.btn-primary{:type => "submit"}-
+    = link_to "Submit"

@@ -1,0 +1,19 @@
+%h1{:style => "margin: auto; background-color: RGB(110,213,244); width: 400px; border: 5px solid rgb(110,101,192); padding: 50px; text-align: center; "} My Services
+ 
+%button.btn.btn-secondary{:style => "margin: 20px"}
+ = link_to "My Group", "my_group", :style=> 'color:black; text-decoration:none; padding: 20px; font-size: 20px', :title=> 'View information about your group.'
+ 
+%button.btn.btn-secondary{:style => "margin: 20px"}
+ = link_to "My Profile", "profile", :style=> 'color:black; text-decoration:none; padding: 20px; font-size: 20px', :title=> 'View details of your profile.'
+
+- currentDate = DateTime.now.to_date
+- # +3600 accomodating for time zone
+- currentTime = DateTime.now.to_time + 3600
+- deadline = Group.find_by(moduleCode: current_user.currentModule).deadline
+- deadline_date = deadline.to_date
+- deadline_time = deadline.to_time
+
+- if (((deadline_date > currentDate) | ((deadline_date == currentDate) & (deadline_time > currentTime))))
+ %button.btn.btn-secondary{:style => "margin: 20px"}
+  = link_to "Module form", "preferences_form", :style=> 'color:black; text-decoration:none; padding: 20px; font-size: 20px', :title=> 'Fill up preference form for your module.'
+  

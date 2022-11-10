@@ -1,0 +1,49 @@
+- content_for :title, "Organise Groups"
+.organize-panel
+  .view-button
+    = simple_form_for :search, url: lecturer_setTeam_path do |f|
+      = f.label :teams, "Team to view:"
+      = f.select :teams, get_teams
+    
+      = f.button :submit, "View Team", :style=> 'color:black; border-width: 0; background-color: #1e90ff; text-decoration:none; padding: 20px; font-size:20px', :title=> 'Select a group from the dropdown box beside "Team to view:" and then click this button to view the existing members of a group. To move a student, use the "Move:" dropdown box to select an exisitng member of the group and the "To:" dropdown box to select the new group for the selected member. Then, click the "Move Student" button.'
+    
+  -# .remove-button
+  -#   = simple_form_for :search, url: lecturer_removeStudent_path do |f|
+  -#     = f.label :students, "Students"
+  -#     = f.select :students, get_students
+    
+  -#     = f.button :submit, "Remove Student", :style=> 'color:black; border-width: 0; background-color: #1e90ff; text-decoration:none; padding: 20px; font-size:20px'
+  
+  .move-button
+    = simple_form_for :search, url: lecturer_addStudent_path do |f|
+      = f.label :students, "Move:"
+      = f.select :students, get_students, inline_label: "Only works when 1st drop down is unasigned"
+
+      %br
+ 
+      = f.label :teams, "To:"
+      = f.select :teams, get_teams
+      = f.button :submit, "Move Student", :style=> 'color:black; border-width: 0; background-color: #1e90ff; text-decoration:none; padding: 20px; font-size:20px', :title=> 'Before clicking this button, please ensure that the right member from the group is selected from the dropdown box beside "Move:" and the intended group is selected from the dropdown box beside "To:".'
+
+  .students
+    = simple_form_for(Lecturer.new) do |f|
+      %h7 Current team:
+      = f.label :team, - getTeamName 
+    %table.table.table-bordered.table-secondary
+      %thead
+        %tr
+          %th Full Name
+          %th Pair
+          %th Unwanted partners
+          %th Domicile
+          %th Gender
+
+        %tbody
+          - if getMembers.size >= 0
+            -  getMembers.each do |student|
+              %tr 
+                %td= student.full_name
+                %td= student.partners
+                %td= student.nonPartners 
+                %td= student.feeStatus 
+                %td= student.gender

@@ -1,0 +1,19 @@
+%h1{:style => "margin: auto; background-color: RGB(110,213,244); width: 400px; border: 5px solid rgb(110,101,192); padding: 50px; text-align: center; "} My Services
+ 
+%button.btn.btn-secondary{:style => "margin: 20px"}
+ = link_to "Upload File", "upload", :style=> 'color:black; text-decoration:none; padding: 20px; font-size: 20px', :title=> 'Upload classlists in the form of CSV files.'
+
+%button.btn.btn-secondary{:style => "margin: 20px"}
+ = link_to "Organise / Assigned Groups", "select_groupset", :style=> 'color:black; text-decoration:none; padding: 20px; font-size: 20px', :title=> 'View, manually adjust and release groups for a project. '
+
+%button.btn.btn-secondary{:style => "margin: 20px"} 
+ = link_to "Form Details", "lecturer_form", :style=> 'color:black; text-decoration:none; padding: 20px; font-size: 20px'
+
+%button.btn.btn-secondary{:style => "margin: 20px"} 
+ = link_to "Form Groups", "run_algo", :style=> 'color:black; text-decoration:none; padding: 20px; font-size: 20px'
+
+%button.btn.btn-secondary{:style => "margin: 20px"} 
+ = link_to "Send Emails", "emails", :style=> 'color:black; text-decoration:none; padding: 20px; font-size: 20px', :title=> 'Send email notifications to students.'
+ 
+%button.btn.btn-secondary{:style => "margin: 20px"}
+ = link_to "My Profile", "profile", :style=> 'color:black; text-decoration:none; padding: 20px; font-size: 20px', :title=> 'View details of your profile.'

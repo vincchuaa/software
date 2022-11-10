@@ -1,0 +1,28 @@
+
+%h4 Form Details 
+
+%br
+= simple_form_for(Group.new) do |f|
+
+   = f.label :moduleCode, "Module Code:"
+   = f.input :moduleCode, required: true, label: false, :placeholder => 'MOD1001'
+
+   = f.label :groupSet, "Project Title:"
+   = f.input :groupSet, required: true, label: false, :placeholder => 'MOD1001 Project'
+
+   = f.label :groupSize, "Team Size:"
+   = f.number_field :groupSize, required: true, label: false, :input_html => {:min => 0}
+   %br
+   %br
+   = f.label :deadline, "Deadline:"
+   = f.datetime_field :deadline, required: true, label: false
+   %br
+   %br
+   = f.label :unwantedMembers, "Number of unwanted members:"
+   = f.number_field :unwantedMembers, required: true, label: false, :input_html => {:min => 0}
+
+   %br
+   %br
+   
+   = f.button :submit, "Send Details", :style=> 'color:black; border-width: 0; background-color: #1e90ff; text-decoration:none; padding: 20px; font-size: 20px', :title=> 'Please ensure that all fields have been filled before clicking this button.'
+

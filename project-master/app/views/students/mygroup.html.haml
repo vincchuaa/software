@@ -1,0 +1,21 @@
+%h1 My Group
+
+%table.table.table-bordered.table-secondary{:border => 3, :width=>"60%"}
+  %thead
+    %tr
+      %th Email
+      %th Name
+
+  %tbody
+    - if (get_group.length() == 0)
+      %tr
+        %td= "No Group!"
+        %td= "No Group!"
+    - else 
+    -  get_group.each do |user|
+      %tr 
+        %td= User.find_by(username:user).mail
+        %td= Preference.find_by(username:user).full_name
+    
+
+

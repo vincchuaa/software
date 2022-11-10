@@ -1,0 +1,11 @@
+%h4 Form Details 
+
+%br
+= simple_form_for(Lecturer.new) do |f|
+
+   = f.label :send_email, "Email Details"
+   = f.input :send_email, required: true, label: false, :placeholder => 'MOD1001'
+
+   
+   = f.button :submit, "Send Details", :style=> 'color:black; border-width: 0; background-color: #1e90ff; text-decoration:none; padding: 20px; font-size: 20px'
+

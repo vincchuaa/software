@@ -1,0 +1,6 @@
+= simple_form_for :search, url: lecturer_runAlgo_path do |f|
+  = f.label :currentGroupSet, "Select Project:"
+  = f.select :currentGroupSet, getGroupSetAlgorithm
+ 
+  = f.button :submit, "Run algorithm", :style=> 'color:black; border-width: 0; background-color: #1e90ff; text-decoration:none; padding: 20px; font-size:20px'
+    

@@ -1,0 +1,19 @@
+%h1 Listing pairings
+
+%table
+  %thead
+    %tr
+      %th
+      %th
+      %th
+
+  %tbody
+    - @pairings.each do |pairing|
+      %tr
+        %td= link_to 'Show', pairing
+        %td= link_to 'Edit', edit_pairing_path(pairing)
+        %td= link_to 'Destroy', pairing, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Pairing', new_pairing_path
